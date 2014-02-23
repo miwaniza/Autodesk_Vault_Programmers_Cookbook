@@ -1,0 +1,45 @@
+POST http://localhost/AutodeskDM/Services/SecurityService.asmx HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.2034)
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://AutodeskDM/Services/Security/1/20/2011/SignInReadOnly"
+Host: localhost
+Content-Length: 1287
+Expect: 100-continue
+Connection: Keep-Alive
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><soap:Header><wsa:Action>http://AutodeskDM/Services/Security/1/20/2011/SignInReadOnly</wsa:Action><wsa:MessageID>urn:uuid:d855ea25-abb7-4fbe-bbc9-9b24a2e91b33</wsa:MessageID><wsa:ReplyTo><wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address></wsa:ReplyTo><wsa:To>http://localhost/AutodeskDM/Services/SecurityService.asmx</wsa:To><wsse:Security><wsu:Timestamp wsu:Id="Timestamp-e1aaa0b4-81b5-4fab-9782-19da84e1f16c"><wsu:Created>2014-02-22T23:22:43Z</wsu:Created><wsu:Expires>2014-02-22T23:27:43Z</wsu:Expires></wsu:Timestamp></wsse:Security></soap:Header><soap:Body><SignInReadOnly xmlns="http://AutodeskDM/Services/Security/1/20/2011/"><userName>Администратор</userName><userPassword /><knowledgeVault>Vault test-drive</knowledgeVault></SignInReadOnly></soap:Body></soap:Envelope>
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 453
+Content-Type: text/xml; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sat, 22 Feb 2014 23:22:30 GMT
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><SecurityHeader xmlns="http://AutodeskDM/Services/Security/1/20/2011/"><Ticket>aeffa132-95a0-431a-ab76-df3ba4fb5d5b</Ticket><UserId>2</UserId></SecurityHeader></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><SignInReadOnlyResponse xmlns="http://AutodeskDM/Services/Security/1/20/2011/"/></s:Body></s:Envelope>
+
+------------------------------------------------------------------
+
+POST http://localhost/AutodeskDM/Services/AdminService.asmx HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.2034)
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://AutodeskDM/Services/AdminService/1/20/2011/GetAllGroups"
+Host: localhost
+Content-Length: 1324
+Expect: 100-continue
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><soap:Header><SecurityHeader xmlns="http://AutodeskDM/Services/AdminService/1/20/2011/"><UserId>2</UserId><Ticket>aeffa132-95a0-431a-ab76-df3ba4fb5d5b</Ticket></SecurityHeader><wsa:Action>http://AutodeskDM/Services/AdminService/1/20/2011/GetAllGroups</wsa:Action><wsa:MessageID>urn:uuid:68a7c614-f589-4551-bfde-095b0b20ed92</wsa:MessageID><wsa:ReplyTo><wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address></wsa:ReplyTo><wsa:To>http://localhost/AutodeskDM/Services/AdminService.asmx</wsa:To><wsse:Security><wsu:Timestamp wsu:Id="Timestamp-0d71fe47-3863-480f-8541-f0174ee2c37e"><wsu:Created>2014-02-22T23:22:56Z</wsu:Created><wsu:Expires>2014-02-22T23:27:56Z</wsu:Expires></wsu:Timestamp></wsse:Security></soap:Header><soap:Body><GetAllGroups xmlns="http://AutodeskDM/Services/AdminService/1/20/2011/" /></soap:Body></soap:Envelope>
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 499
+Content-Type: text/xml; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sat, 22 Feb 2014 23:22:30 GMT
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetAllGroupsResponse xmlns="http://AutodeskDM/Services/AdminService/1/20/2011/"><GetAllGroupsResult><Group Id="1" Name="Все пользователи" EmailDL="" CreateUserId="0" CreateDate="2013-11-28T14:29:14.657" IsActive="true" IsSys="true" Auth="Vault"/></GetAllGroupsResult></GetAllGroupsResponse></s:Body></s:Envelope>
+
+------------------------------------------------------------------
+
